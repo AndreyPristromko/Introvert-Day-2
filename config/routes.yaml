@@ -1,0 +1,18 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+# Перенаправляем корневой маршрут на нашу HTML страницу
+homepage:
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+    defaults:
+        path: /index.html
+        permanent: true
+
+api_booking_check:
+    path: /api/check
+    controller: App\Controller\LeadsController::checkData
+    methods: ['GET']
