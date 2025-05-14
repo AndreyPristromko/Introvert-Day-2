@@ -7,7 +7,7 @@ class LeadsService extends ApiService
     private const STATUS_IDS = [24374824, 142, 24374827]; 
     private const DATE_FIELD_ID = 1523889; 
     private const LEADS_COUNT = 25; 
-    private const MAX_LEADS_DAY = 3; 
+    private const N = 3; 
 
     public function getLeadsByDate(int $timestamp): array
     {
@@ -55,7 +55,7 @@ class LeadsService extends ApiService
         }
 
         foreach ($leadsDay as $timestamp => $count) {
-            if ($count >= self::MAX_LEADS_DAY) {
+            if ($count >= self::N) {
                 unset($leadsDay[$timestamp]);
             }
         }
